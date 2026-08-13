@@ -1,3 +1,36 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>志校儿的博客</title><link>https://zhischooler.github.io</link><description>联系我：zhixiaoers@outlook.com</description><copyright>志校儿的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/310584762?s=400&amp;u=2d6e2e158ad62899f754bf48b7a66aa4e345d274&amp;v=4</url><title>avatar</title><link>https://zhischooler.github.io</link></image><lastBuildDate>Thu, 13 Aug 2026 05:38:25 +0000</lastBuildDate><managingEditor>志校儿的博客</managingEditor><ttl>60</ttl><webMaster>志校儿的博客</webMaster><item><title>建站了！</title><link>https://zhischooler.github.io/post/jian-zhan-le-%EF%BC%81.html</link><description># 热烈恭喜志校儿的博客建站！
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>志校儿的博客</title><link>https://zhischooler.github.io</link><description>联系我：zhixiaoers@outlook.com</description><copyright>志校儿的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/310584762?s=400&amp;u=2d6e2e158ad62899f754bf48b7a66aa4e345d274&amp;v=4</url><title>avatar</title><link>https://zhischooler.github.io</link></image><lastBuildDate>Thu, 13 Aug 2026 06:13:25 +0000</lastBuildDate><managingEditor>志校儿的博客</managingEditor><ttl>60</ttl><webMaster>志校儿的博客</webMaster><item><title>AppleMusicGUI版AAC下载器使用方法</title><link>https://zhischooler.github.io/post/AppleMusicGUI-ban-AAC-xia-zai-qi-shi-yong-fang-fa.html</link><description># AppleMusicGUI版AAC下载器使用方法
+**原地址**：[地址](https://github.com/Zhischooler/applemusic-aac-gui)
+_使用截图_
+
+&lt;img width='1920' height='897' alt='Image' src='https://github.com/user-attachments/assets/9b7eedfd-31de-4b78-b976-e3b088b28b1e' /&gt;
+
+## 📦 依赖
+
+* Python 3.10+
+
+* [gamdl](https://github.com/glomatico/gamdl) ≥ 2.7.0
+ 
+* [FFmpeg](https://ffmpeg.org/)（用于转码，若不需要转 FLAC 可省略）
+ 
+* PySide6（GUI 框架）
+
+## 🚀 快速开始
+
+### 1\. 克隆仓库
+
+```bash
+git clone https://github.com/Zhischooler/apple-music-aac-gui.git
+cd apple-music-aac-gui
+```
+
+2. 安装依赖
+
+```bash
+pip install -r requirements.txt
+```
+
+3. 安装 FFmpeg（如需转 FLAC）
+
+· Windows：下载 ffmpeg.org 并添加到 PATH。</description><guid isPermaLink="true">https://zhischooler.github.io/post/AppleMusicGUI-ban-AAC-xia-zai-qi-shi-yong-fang-fa.html</guid><pubDate>Thu, 13 Aug 2026 06:12:54 +0000</pubDate></item><item><title>建站了！</title><link>https://zhischooler.github.io/post/jian-zhan-le-%EF%BC%81.html</link><description># 热烈恭喜志校儿的博客建站！
 感谢`Gmeek`这个项目！。</description><guid isPermaLink="true">https://zhischooler.github.io/post/jian-zhan-le-%EF%BC%81.html</guid><pubDate>Thu, 13 Aug 2026 05:22:27 +0000</pubDate></item></channel></rss>
