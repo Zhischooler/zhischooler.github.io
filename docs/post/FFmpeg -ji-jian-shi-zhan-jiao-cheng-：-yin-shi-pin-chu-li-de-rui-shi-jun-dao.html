@@ -116,7 +116,7 @@ file 'part2.mp4'
 <div class="highlight highlight-source-shell"><pre class="notranslate">ffmpeg -f concat -safe 0 -i list.txt -c copy output.mp4</pre></div>
 <h3>⑦ 添加水印</h3>
 <div class="highlight highlight-source-shell"><pre class="notranslate">ffmpeg -i input.mp4 -i watermark.png -filter_complex <span class="pl-s"><span class="pl-pds">"</span>overlay=W-w-10:H-h-10<span class="pl-pds">"</span></span> output.mp4</pre></div></div>
-<div style="font-size:small;margin-top:8px;float:right;"></div>
+<div style="font-size:small;margin-top:8px;float:right;">转载请注明出处，谢谢！</div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
@@ -131,8 +131,8 @@ file 'part2.mp4'
 var now=new Date();
 document.getElementById("copyrightYear").innerHTML=now.getFullYear();
 
-if(""!=""){
-    var startSite=new Date("");
+if("08/13/2026"!=""){
+    var startSite=new Date("08/13/2026");
     var diff=now.getTime()-startSite.getTime();
     var diffDay=Math.floor(diff/(1000*60*60*24));
     document.getElementById("runday").innerHTML="网站运行 "+diffDay+" 天"+" • ";
