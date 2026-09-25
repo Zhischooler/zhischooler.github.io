@@ -71,12 +71,6 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
         </svg>
     </a>
     
-    <a href="https://github.com/Zhischooler/zhischooler.github.io/issues/2" target="_blank" class="btn btn-invisible circle" title="Issue">
-        <svg class="octicon" width="16" height="16">
-            <path id="pathIssue" fill-rule="evenodd"></path>
-        </svg>
-    </a>
-    
 
     <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
         <svg class="octicon" width="16" height="16" >
@@ -116,7 +110,7 @@ file 'part2.mp4'
 <div class="highlight highlight-source-shell"><pre class="notranslate">ffmpeg -f concat -safe 0 -i list.txt -c copy output.mp4</pre></div>
 <h3>⑦ 添加水印</h3>
 <div class="highlight highlight-source-shell"><pre class="notranslate">ffmpeg -i input.mp4 -i watermark.png -filter_complex <span class="pl-s"><span class="pl-pds">"</span>overlay=W-w-10:H-h-10<span class="pl-pds">"</span></span> output.mp4</pre></div></div>
-<div style="font-size:small;margin-top:8px;float:right;">转载请注明出处，谢谢！</div>
+<div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
@@ -173,7 +167,7 @@ console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 
 
 <script>
 document.getElementById("pathHome").setAttribute("d",IconList["home"]);
-document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
 
 
 
