@@ -1,221 +1,93 @@
-- 一个基于 Python + HTML 前后端分离架构 的英语单词听音拼写小游戏。
 
-- 项目使用 Flask 提供后端 API，使用原生 HTML / CSS / JavaScript 构建前端页面，并基于 神秘 项目生成英语语音。
 
-- 用户可以听单词发音、听字母拼读，然后输入单词进行拼写测试。项目还支持手动录入新单词，首次录入后会自动生成 words.json 词库文件。
+Cloudflare Pages 是一项完全免费的静态网站托管服务，部署成功后会为你分配一个 `*.pages.dev` 的免费二级域名 。以下是完整的操作步骤。
 
-**这就是我用Qwen Studio做的学习辅助工具，项目已经开源。**
-[地址](https://github.com/Zhi-xiaoxiao/Spelling-Game)
+## 一、注册 Cloudflare 账号
 
-## 快速开始
+1. 打开 [Cloudflare 官网](https://dash.cloudflare.com/)
 
-### 1. 进入后端目录
+2. 点击注册，填写邮箱和密码完成账号创建
 
-```bash
-cd backend
-```
+3. 登录后进入 Cloudflare 仪表盘
 
-### 2. 安装依赖
+## 二、准备网站源码
 
-```bash
-pip install -r requirements.txt
-```
+你需要有一个准备部署的网站项目。可以是你自己写的静态 HTML 网站，也可以是用 React、Vue、Next.js、Hugo、Hexo 等框架生成的项目。
 
-`requirements.txt` 内容：
+> **注意**：Cloudflare Pages 免费版单个站点最多可包含 20,000 个文件。
 
-```text
-Flask
-Flask-Cors
-requests
-```
+## 三、将代码上传到 GitHub
 
-### 3. 启动后端服务
+Cloudflare Pages 支持直接从 GitHub 仓库部署。
 
-```bash
-python app.py
-```
+1. 打开 [GitHub](https://github.com/) 并登录
 
-启动成功后访问：
+2. 点击右上角“+”→“New repository”新建代码仓库
 
-```text
-http://127.0.0.1:5000
-```
+3. 填写仓库名称（建议选 **Private** 私密模式，防止代码被公开）
 
-> 注意：请不要直接双击打开 `frontend/index.html`。  
-> 本项目通过后端服务托管前端页面，请直接访问 `http://127.0.0.1:5000`。
+4. 在本地项目根目录执行 Git 命令将代码推送到 GitHub
 
----
+## 四、在 Cloudflare Pages 创建项目
 
-## 使用说明
+1. 登录 Cloudflare 仪表盘，在左侧菜单找到 **“计算”** 分类，点击 **Pages**（或直接点击 **Workers & Pages**）
 
-1. 点击「抽取新单词」开始游戏。
-2. 点击「读单词」听完整单词发音。
-3. 点击「拼字母」听字母逐个拼读。
-4. 在输入框中输入你听到的单词。
-5. 点击「提交答案」查看是否正确。
-6. 在下方「词库管理」中输入新单词并回车，即可录入词库。
+2. 点击 **创建应用程序** → 选择 **Pages** 标签 → 点击 **导入现有 Git 仓库**
 
-首次录入新单词后，后端目录会自动生成：
+3. 连接你的 GitHub 账号，授权 Cloudflare 访问仓库
 
-```text
-backend/words.json
-```
+4. 选择刚才上传的 GitHub 仓库，点击 **开始设置**
 
-之后程序会优先读取该文件作为词库。
+> **⚠️ 注意**：如果找不到你的仓库，可能是因为设置了私密模式。点击“去 GitHub 上为 Cloudflare Page 应用配置仓库访问权限”，在 GitHub 授权页面选择你的仓库并保存即可。
 
----
+## 五、配置构建设置
 
-## API 说明
+1. **项目名称**：输入一个名称（如 `my-portfolio`），这将决定你的最终域名 —— `https://my-portfolio.pages.dev`
 
-### 获取词库
+2. **生产分支**：通常保持默认的 `main` 或 `master`
 
-```http
-GET /api/words
-```
+3. **构建设置**：
 
-返回当前词库列表和单词数量。
+   - 如果使用框架（如 Next.js、Vue 等），在 **框架预设** 中选择对应的框架，系统会自动填入构建命令和输出目录
 
----
+   - 如果是纯静态 HTML 网站，构建命令填 `exit 0`，构建输出目录填你的网站文件所在目录（如 `.` 或 `public`）
+4. 点击 **保存并部署**
 
-### 添加单词
+## 六、等待部署完成
 
-```http
-POST /api/words
-```
+Cloudflare Pages 会自动拉取代码、安装依赖、执行构建并部署。部署过程通常只需要 1-2 分钟。
 
-请求示例：
+部署成功后，你会看到一个 `https://<你的项目名>.pages.dev` 的链接—— 这就是你免费获得的 `.pages.dev` 域名！
 
-```json
-{
-  "word": "apple"
-}
-```
+点击链接即可访问你的网站。如果首次访问报错，可能是因为 SSL 证书还在签发中，等待 5-10 分钟再刷新就好了。
 
-成功返回：
+## 七、自动部署（CI/CD）
 
-```json
-{
-  "success": true,
-  "message": "录入成功",
-  "count": 31
-}
-```
+Cloudflare Pages 的一大优势是 **自动部署**。以后每次你推送新代码到 GitHub 仓库，Cloudflare Pages 都会自动重新构建并部署你的网站。每次新提交都会触发一次构建，免费版每月有 500 次构建额度。
 
----
+## 常见问题
 
-### 开始游戏
+### 1. 访问 `.pages.dev` 域名出现 404 错误？
 
-```http
-POST /api/game/start
-```
+确保你的网站根目录下有一个 `index.html` 文件，这是 Pages 默认访问的入口文件。
 
-后端会随机抽取一个单词，并将答案保存在 Session 中。
+### 2. 可以绑定自己的域名吗？
 
-返回示例：
+可以。在项目页面点击 **自定义域** → **设置自定义域**，按提示添加你的域名并配置 CNAME 记录指向 `<你的项目>.pages.dev` 即可。
 
-```json
-{
-  "length": 5,
-  "total_words": 30
-}
-```
+### 3. 免费版有哪些限制？
 
----
+- **每月构建次数**：500 次
 
-### 获取语音
+- **并发构建**：每次 1 个
 
-```http
-POST /api/game/audio
-```
+- **站点文件数**：最多 20,000 个文件
+- **带宽**：**无限**免费带宽
 
-请求示例：
+- **站点数量**：可创建多达 100 个项目
 
-```json
-{
-  "mode": "word"
-}
-```
+- **Workers 请求**：每天 100,000 次
 
-`mode` 支持：
+### 4. 国内访问速度怎么样？
 
-- `word`：朗读完整单词
-- `spell`：逐个字母拼读
-
-返回：
-
-```text
-audio/mpeg
-```
-
----
-
-### 检查答案
-
-```http
-POST /api/game/check
-```
-
-请求示例：
-
-```json
-{
-  "guess": "apple"
-}
-```
-
-成功返回：
-
-```json
-{
-  "success": true,
-  "message": "回答正确"
-}
-```
-
-失败返回：
-
-```json
-{
-  "success": false,
-  "message": "回答错误，正确答案是 apple"
-}
-```
-
----
-
-## 自定义 TTS 服务
-
-本项目默认使用：
-
-```text
-https://tts.wangwangit.com/v1/audio/speech
-```
-
-如果你希望自己部署 TTS 服务，可以参考：
-
-```text
-https://github.com/wangwangit/tts
-```
-
-部署完成后，修改 `backend/app.py` 中的：
-
-```python
-TTS_API_URL = "https://tts.wangwangit.com/v1/audio/speech"
-```
-
-替换为你自己的服务地址即可。
-
----
-
-## 技术栈
-
-- Python
-- Flask
-- Flask-Cors
-- requests
-- HTML
-- CSS
-- JavaScript
-- Fetch API
-- Microsoft Edge TTS
-****
+Cloudflare 拥有全球 CDN 网络，在国内访问速度相比 GitHub Pages 有明显优势。但由于网络环境差异，部分地区访问 `.pages.dev` 域名可能不稳定，建议绑定自己的域名以获得更稳定的访问体验。
