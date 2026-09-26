@@ -26,7 +26,7 @@ ffmpeg -i input.mp4 output.mkv
 ffmpeg -i video.mp4 -vn -acodec mp3 audio.mp3
 ```
 
-### ③ 裁剪视频
+###  裁剪视频
 ```bash
 ffmpeg -i input.mp4 -ss 00:00:10 -t 5 -c copy output.mp4
 ```
@@ -36,12 +36,12 @@ ffmpeg -i input.mp4 -ss 00:00:10 -t 5 -c copy output.mp4
 ffmpeg -i input.mp4 -vf scale=1280:-1 -b:v 1000k output.mp4
 ```
 
-### ⑤ 调整速度
+### 调整速度
 ```bash
 ffmpeg -i input.mp4 -vf "setpts=0.5*PTS" -af "atempo=2.0" output.mp4
 ```
 
-### ⑥ 合并视频
+### 合并视频
 创建 `list.txt`：
 ```text
 file 'part1.mp4'
@@ -52,7 +52,7 @@ file 'part2.mp4'
 ffmpeg -f concat -safe 0 -i list.txt -c copy output.mp4
 ```
 
-### ⑦ 添加水印
+###  添加水印
 ```bash
 ffmpeg -i input.mp4 -i watermark.png -filter_complex "overlay=W-w-10:H-h-10" output.mp4
 ```
